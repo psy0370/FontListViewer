@@ -1,0 +1,42 @@
+﻿<Window x:Class="FontListViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FontListViewer"
+        xmlns:local2="clr-namespace:FontListViewer.Controls"
+        mc:Ignorable="d"
+        Title="フォント一覧" Height="450" Width="800" MinWidth="400" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200" MinWidth="150" MaxWidth="300"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <ListView x:Name="FontListView" ItemsSource="{Binding}" SelectionChanged="FontListView_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" FontFamily="{Binding}" FontSize="16"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <GridSplitter Grid.Column="1" Width="2" HorizontalAlignment="Stretch"/>
+
+        <Border Grid.Column="2" BorderBrush="LightGray" BorderThickness="1" Padding="1">
+            <DockPanel>
+                <StackPanel DockPanel.Dock="Top">
+                    <StackPanel Orientation="Horizontal">
+                        <Label Content="フォント名："/>
+                        <TextBlock x:Name="FontName" VerticalAlignment="Center"/>
+                    </StackPanel>
+                    <Separator/>
+                </StackPanel>
+                <ScrollViewer x:Name="FontViewWrapper" Padding="10" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" DockPanel.Dock="Bottom">
+                    <local2:AutoResizeCanvas x:Name="FontView" />
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
