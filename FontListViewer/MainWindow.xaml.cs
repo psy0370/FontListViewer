@@ -58,7 +58,7 @@ namespace FontListViewer
                     FontSize = size
                 };
                 block.Inlines.Add("abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ\n");
-                block.Inlines.Add("123467890.:,;'\"(!?)+-*/=\n");
+                block.Inlines.Add("1234567890.:,;'\"(!?)+-*/=\n");
                 block.Inlines.Add("Windowsでコンピュータの世界が広がります。");
 
                 content.Content = block;
